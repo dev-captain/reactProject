@@ -51,16 +51,6 @@ export default url => ({
         }
     },
 
-    setValues(values, clearPreviousValue = true) {
-        values.forEach(val => {
-            this.setInputValue(
-                val.type,
-                val.name,
-                val.value,
-                clearPreviousValue
-            );
-        });
-    },
 
     submit(expectNotification = true) {
         cy.get(this.elements.submitButton).click();
