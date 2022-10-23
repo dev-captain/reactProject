@@ -12,6 +12,10 @@ return server.start().then(listeningServer => {
             },
         })
         .then(results => {
+            // stop your server when it's complete
+            listeningServer.close();
+            if (results.totalFailed > 0) {
+                process.exit(1);
             }
         })
         .catch(() => {
