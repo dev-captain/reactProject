@@ -72,6 +72,10 @@ export default url => ({
     },
 
     submitWithKeyboard() {
+        cy.get("input[type='text']:first").type('{enter}');
+        cy.get(this.elements.snackbar);
+        cy.get(this.elements.snackbar).click(); // dismiss notification
+        cy.wait(200); // let the notification disappear (could block further submits)
     },
 
     submitAndShow() {
